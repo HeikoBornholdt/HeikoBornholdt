@@ -7,7 +7,7 @@ on:
   # (optional) Run workflow when pushing on master/main
   push: {branches: ["master", "main"]}
 jobs:
-  github-metrics:
+  github-metrics-isocalendar:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -25,6 +25,7 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
 
           # Options
+          filename: ${{ github.job }}.svg
           user: HeikoBornholdt
           template: classic
           base: header, activity, community, repositories, metadata
@@ -32,6 +33,29 @@ jobs:
           # Isometric commit calendar
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
+  github-metrics-languages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          # Your GitHub token
+          # The following scopes are required:
+          #  - public_access (default scope)
+          # The following additional scopes may be required:
+          #  - read:org      (for organization related metrics)
+          #  - read:user     (for user related data)
+          #  - read:packages (for some packages related data)
+          #  - repo          (optional, if you want to include private repositories)
+          token: ${{ secrets.METRICS_TOKEN }}
+
+          # Options
+          filename: ${{ github.job }}.svg
+          user: HeikoBornholdt
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Europe/Berlin
           # Languages activity
           plugin_languages: yes
           plugin_languages_analysis_timeout: 15
@@ -45,17 +69,86 @@ jobs:
           plugin_languages_recent_load: 300
           plugin_languages_sections: most-used
           plugin_languages_threshold: 0%
+  github-metrics-lines:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          # Your GitHub token
+          # The following scopes are required:
+          #  - public_access (default scope)
+          # The following additional scopes may be required:
+          #  - read:org      (for organization related metrics)
+          #  - read:user     (for user related data)
+          #  - read:packages (for some packages related data)
+          #  - repo          (optional, if you want to include private repositories)
+          token: ${{ secrets.METRICS_TOKEN }}
+
+          # Options
+          filename: ${{ github.job }}.svg
+          user: HeikoBornholdt
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Europe/Berlin
           # Lines of code changed
           plugin_lines: yes
           plugin_lines_history_limit: 1
           plugin_lines_repositories_limit: 4
           plugin_lines_sections: base
+  github-metrics-notable:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          # Your GitHub token
+          # The following scopes are required:
+          #  - public_access (default scope)
+          # The following additional scopes may be required:
+          #  - read:org      (for organization related metrics)
+          #  - read:user     (for user related data)
+          #  - read:packages (for some packages related data)
+          #  - repo          (optional, if you want to include private repositories)
+          token: ${{ secrets.METRICS_TOKEN }}
+
+          # Options
+          filename: ${{ github.job }}.svg
+          user: HeikoBornholdt
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Europe/Berlin
           # Notable contributions
           plugin_notable: yes
           plugin_notable_filter: stars:>100
           plugin_notable_from: all
           plugin_notable_repositories: yes
           plugin_notable_types: pull_request
+  github-metrics-code:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          # Your GitHub token
+          # The following scopes are required:
+          #  - public_access (default scope)
+          # The following additional scopes may be required:
+          #  - read:org      (for organization related metrics)
+          #  - read:user     (for user related data)
+          #  - read:packages (for some packages related data)
+          #  - repo          (optional, if you want to include private repositories)
+          token: ${{ secrets.METRICS_TOKEN }}
+
+          # Options
+          filename: ${{ github.job }}.svg
+          user: HeikoBornholdt
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Europe/Berlin
           # Random code snippet
           plugin_code: yes
           plugin_code_days: 3
