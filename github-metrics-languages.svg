@@ -22,7 +22,7 @@
                         <rect x="0" y="0" width="460" height="8" fill="white" rx="5"/>
                     </mask>
                     <rect mask="url(#languages-bar)" x="0" y="0" width="0" height="8" fill="#d1d5da"/>
-                    <rect mask="url(#languages-bar)" x="0" y="0" width="408.4487043720689" height="8" fill="#ededed"/>
+                    <rect mask="url(#languages-bar)" x="0" y="0" width="408.4487043720689" height="8" fill="#b07219"/>
                     <rect mask="url(#languages-bar)" x="408.4487043720689" y="0" width="34.67074409457327" height="8" fill="#89e051"/>
                     <rect mask="url(#languages-bar)" x="443.11944846664215" y="0" width="16.33874348944263" height="8" fill="#701516"/>
                     <rect mask="url(#languages-bar)" x="459.45819195608476" y="0" width="0.4225108599338679" height="8" fill="#384d54"/>
@@ -33,7 +33,7 @@
                         <div class="field language details">
                             <div class="field">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
-                                    <path fill="#ededed" fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"/>
+                                    <path fill="#b07219" fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8z"/>
                                 </svg>
                                 Java
                             </div>
